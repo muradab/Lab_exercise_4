@@ -1,61 +1,104 @@
-var firstNumber ;
-var secondNumber ;
-var operation ;
+var firstNumber;
+var secondNumber;
+var operation;
+let tempSum = 0;
+let tempMultiply = 1;
+let Number = new Array();
 
-let numberOperation ;
 
-operation =prompt("enter the operation you need (just add the number) 1 for addition 2 for subtraction 3 for multiplication 4 for division")
-firstNumber = prompt("Enter first number")
-secondNumber = prompt (" enter second number")
 
-if (operation == 1 || operation ==3 ){
-    numberOperation = prompt("how much numbers  ? ");
-//Receiving the family number 
-for (let i = 0; i < parseInt(numberOperation); i++) {
- familyMember[i] = prompt("Your Family Members " + (i + 1));
-}
-}
-function addition(a,b){
-    return parseInt(a) + parseInt(a)
-}
 
-function subtraction(a,b){
-    return a - b
-}
-function multiplication(a,b){
-    return a * b
-}
-function division(a,b){
-    return a / b
-}
-
-if (operation == 1 )
+function addition(Number)
 {
-    console.log("your result " + addition(firstNumber,secondNumber))
+    Number.forEach(function(member , index) {
+       tempSum = tempSum + parseFloat (Number[index]) 
+     });
+    return tempSum
 }
-else if (operation == 2 )
+function subtraction(fn,sn)
 {
-    console.log("your result " + subtraction(firstNumber,secondNumber))
+    return fn - sn
 }
- else if (operation == 3 )
+function multiplication(Number)
 {
-    console.log("your result " + multiplication(firstNumber,secondNumber))
+    Number.forEach(function(member , index) {
+        tempMultiply = tempMultiply * parseFloat (Number[index]) 
+      });
+     return tempMultiply
 }
-else if (operation == 4 )
+function division(fn,sn)
 {
-    console.log("your result " + division(firstNumber,secondNumber))
-}
-else{
-    console.log("no operation selected " )
+    if (sn > 0)
+    {
+        return fn / sn
+    }
+    else{
+        return "Invalid Denominator"
+    }
+    
 }
 
 (function()
 {
-   // Display the result on console from input 
-console.log(addition(firstNumber,secondNumber))
-console.log(subtraction(firstNumber,secondNumber))
-console.log(multiplication(firstNumber,secondNumber))
-console.log(division(firstNumber,secondNumber))
+    while (true){
+    operation = prompt("Enter the number for the operation you need  1 for addition 2 for subtraction 3 for multiplication 4 for division 5 for terminate calculator")
+    if(operation == 1){
+        noOfValues = prompt("how many Numbers do you wanna operate? ");
+        for(let index = 0; index < parseInt(noOfValues); index++){
+        Number[index] = prompt("No of elements" + (index + 1));
+    }
+    }
+   
+    
+    else if(operation == 3) {
+        noOfValues = prompt("how many Numbers do you wanna operate? ");
+        for(let index = 0; index < parseInt(noOfValues); index++){
+        Number[index] = prompt("No of elements" + (index + 1));
+    }
+    }
 
-})
-()
+    else if (operation ==5)
+    {
+      
+        console.log("calulator terminated succesefully ");
+        break;
+        
+    }
+    
+    
+    else{
+        firstNumber = prompt("Enter first number: ")
+        secondNumber = prompt("Enter second number: ")
+        tempFN = parseFloat(firstNumber)
+        tempSN = parseFloat(secondNumber)
+    }
+    
+
+    if(operation == 1){
+        alert("Your result" + " " + addition(Number));
+    }    
+    else if (operation == 2){
+        alert("Your result" + " " + subtraction(tempFN , tempSN));
+    }    
+    else if (operation == 3){
+        alert("Your result" + " " + " " + multiplication(Number));
+    }
+    else if(operation == 4)
+    {
+        alert("Your result" + " " +division(tempFN , tempSN));
+    }
+    else if (operation ==5)
+    {
+      
+        console.log("calulator terminated succesefully ");
+        break;
+        
+    }
+    else
+    {
+        alert("No operation selected.");
+        
+    }
+}
+}
+)();
