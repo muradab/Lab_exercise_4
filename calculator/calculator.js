@@ -37,12 +37,16 @@ function division(fn,sn)
     }
     
 }
+function average(Number){
+    return (addition(Number) / Number.length)
+
+}
 
 (function()
 {
     while (true){
-    operation = prompt("Enter the number for the operation you need  1 for addition 2 for subtraction 3 for multiplication 4 for division 5 for terminate calculator")
-    if(operation == 1){
+    operation = prompt("Enter the number for the operation you need  1 for addition 2 for subtraction 3 for multiplication 4 for division 5 for terminate calculator 6 for average")
+    if(operation == 1 || operation == 3 || operation == 6){
         noOfValues = prompt("how many Numbers do you wanna operate? ");
         for(let index = 0; index < parseInt(noOfValues); index++){
         Number[index] = prompt("No of elements" + (index + 1));
@@ -50,12 +54,7 @@ function division(fn,sn)
     }
    
     
-    else if(operation == 3) {
-        noOfValues = prompt("how many Numbers do you wanna operate? ");
-        for(let index = 0; index < parseInt(noOfValues); index++){
-        Number[index] = prompt("No of elements" + (index + 1));
-    }
-    }
+    
 
     else if (operation ==5)
     {
@@ -63,9 +62,7 @@ function division(fn,sn)
         console.log("calulator terminated succesefully ");
         break;
         
-    }
-    
-    
+    } 
     else{
         firstNumber = prompt("Enter first number: ")
         secondNumber = prompt("Enter second number: ")
@@ -94,6 +91,9 @@ function division(fn,sn)
         break;
         
     }
+    else if (operation == 6){
+        alert("Your result" + " " + average(Number));
+    } 
     else
     {
         alert("No operation selected.");
